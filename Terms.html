@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Terms of Service — mambru.inc</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Mono:wght@300;400;500&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --bg: #080808; --surface: #0f0f0f; --surface2: #161616;
+    --border: rgba(255,255,255,0.07); --border-hover: rgba(255,255,255,0.18);
+    --text: #f0ede8; --muted: #6b6b6b; --accent: #e8e0d0; --white: #ffffff;
+  }
+  html { scroll-behavior: smooth; }
+  body { background: var(--bg); color: var(--text); font-family: 'Syne', sans-serif; font-size: 15px; line-height: 1.6; overflow-x: hidden; cursor: none; }
+  .cursor { position: fixed; width: 10px; height: 10px; background: var(--white); border-radius: 50%; pointer-events: none; z-index: 9999; transform: translate(-50%, -50%); transition: width 0.2s ease, height 0.2s ease, opacity 0.2s ease; }
+  .cursor.hovered { width: 32px; height: 32px; opacity: 0.4; }
+  body::before { content: ''; position: fixed; inset: 0; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E"); pointer-events: none; z-index: 1000; opacity: 0.5; }
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 28px 48px; }
+  nav::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(8,8,8,0.95) 0%, transparent 100%); z-index: -1; }
+  .nav-logo { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 18px; letter-spacing: -0.02em; color: var(--white); text-decoration: none; }
+  .nav-logo span { color: var(--muted); }
+  .nav-back { font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); text-decoration: none; transition: color 0.2s; display: flex; align-items: center; gap: 8px; }
+  .nav-back::before { content: '←'; }
+  .nav-back:hover { color: var(--white); }
+  .page-header { padding: 160px 48px 80px; border-bottom: 1px solid var(--border); display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: end; }
+  .page-eyebrow { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); margin-bottom: 20px; }
+  .page-title { font-family: 'Syne', sans-serif; font-weight: 800; font-size: clamp(42px, 7vw, 90px); letter-spacing: -0.04em; line-height: 0.92; color: var(--white); }
+  .page-title em { font-family: 'Instrument Serif', serif; font-style: italic; font-weight: 400; color: var(--accent); }
+  .page-meta { display: flex; flex-direction: column; gap: 16px; align-items: flex-end; }
+  .page-date { font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); }
+  .page-summary { font-size: 14px; color: var(--muted); line-height: 1.8; text-align: right; max-width: 360px; }
+  .content-wrap { display: grid; grid-template-columns: 240px 1fr; min-height: 100vh; }
+  .content-aside { border-right: 1px solid var(--border); padding: 60px 40px; position: sticky; top: 88px; height: fit-content; }
+  .aside-label { font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); margin-bottom: 24px; }
+  .aside-nav { display: flex; flex-direction: column; gap: 4px; }
+  .aside-nav a { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); text-decoration: none; padding: 8px 0; border-bottom: 1px solid var(--border); transition: color 0.2s; }
+  .aside-nav a:hover { color: var(--white); }
+  .aside-nav a:last-child { border-bottom: none; }
+  .content-main { padding: 60px 64px 120px; max-width: 780px; }
+  .content-section { margin-bottom: 80px; }
+  .section-num { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted); margin-bottom: 16px; display: flex; align-items: center; gap: 12px; }
+  .section-num::after { content: ''; flex: 1; height: 1px; background: var(--border); max-width: 40px; }
+  .section-title { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 26px; letter-spacing: -0.02em; color: var(--white); margin-bottom: 24px; }
+  .content-body p { font-size: 14px; color: var(--muted); line-height: 1.9; margin-bottom: 16px; }
+  .content-body p:last-child { margin-bottom: 0; }
+  .content-body strong { color: var(--text); font-weight: 600; }
+  .info-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: 12px; overflow: hidden; margin: 28px 0; }
+  .info-cell { background: var(--surface); padding: 20px 24px; }
+  .info-cell-label { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin-bottom: 8px; }
+  .info-cell-value { font-size: 14px; color: var(--text); line-height: 1.6; }
+  .highlight-box { border: 1px solid var(--border); border-left: 2px solid rgba(255,255,255,0.2); background: var(--surface); border-radius: 0 8px 8px 0; padding: 20px 24px; margin: 24px 0; }
+  .highlight-box p { font-size: 13px !important; color: var(--accent) !important; }
+  .warning-box { border: 1px solid rgba(255,200,100,0.15); border-left: 2px solid rgba(255,200,100,0.4); background: rgba(255,200,100,0.03); border-radius: 0 8px 8px 0; padding: 20px 24px; margin: 24px 0; }
+  .warning-box p { font-size: 13px !important; color: rgba(255,210,120,0.8) !important; }
+  footer { border-top: 1px solid var(--border); padding: 40px 48px; display: flex; align-items: center; justify-content: space-between; }
+  .footer-logo { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 16px; letter-spacing: -0.02em; color: var(--white); }
+  .footer-logo span { color: var(--muted); }
+  .footer-copy { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.12em; color: var(--muted); text-transform: uppercase; }
+  .footer-links { display: flex; gap: 24px; list-style: none; }
+  .footer-links a { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); text-decoration: none; transition: color 0.2s; }
+  .footer-links a:hover { color: var(--white); }
+  .fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
+  .fade-in.visible { opacity: 1; transform: translateY(0); }
+  @media (max-width: 900px) {
+    .page-header { grid-template-columns: 1fr; padding: 140px 24px 60px; }
+    .page-meta { align-items: flex-start; } .page-summary { text-align: left; }
+    .content-wrap { grid-template-columns: 1fr; } .content-aside { display: none; }
+    .content-main { padding: 40px 24px 80px; } nav { padding: 24px; }
+    footer { flex-direction: column; gap: 16px; text-align: center; padding: 32px 24px; }
+    .footer-links { justify-content: center; } .info-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+<div class="cursor" id="cursor"></div>
+<nav>
+  <a href="index.html" class="nav-logo">mambru<span>.inc</span></a>
+  <a href="index.html" class="nav-back">Back to home</a>
+</nav>
+<div class="page-header">
+  <div>
+    <p class="page-eyebrow">Legal — 02</p>
+    <h1 class="page-title">Terms of<br><em>Service</em></h1>
+  </div>
+  <div class="page-meta">
+    <span class="page-date">Effective: January 1, 2025</span>
+    <p class="page-summary">The rules of the road for using mambru.inc products. Plain language. No surprises.</p>
+  </div>
+</div>
+<div class="content-wrap">
+  <aside class="content-aside">
+    <p class="aside-label">Sections</p>
+    <nav class="aside-nav">
+      <a href="#agreement">Agreement</a>
+      <a href="#accounts">Accounts</a>
+      <a href="#license">License</a>
+      <a href="#conduct">Conduct</a>
+      <a href="#content">Your Content</a>
+      <a href="#payments">Payments</a>
+      <a href="#termination">Termination</a>
+      <a href="#liability">Liability</a>
+      <a href="#disputes">Disputes</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </aside>
+  <main class="content-main">
+
+    <div class="content-section fade-in" id="agreement">
+      <p class="section-num">01</p>
+      <h2 class="section-title">Agreement</h2>
+      <div class="content-body">
+        <p>These Terms of Service ("Terms") govern your access to and use of all products, apps, and services operated by mambru.inc, including APX, WARDROBE, DECK, AURA, KINETIC, NEXUS, GRIND, INDEX, and any associated brand platforms (2am, Clicky, Veynor).</p>
+        <div class="highlight-box"><p>By creating an account or using any mambru.inc service, you agree to be bound by these Terms. If you do not agree, do not use our services.</p></div>
+        <p>We may revise these Terms at any time. For material changes, we will provide at least 14 days' notice via email or in-app notification. Continued use after the effective date constitutes acceptance.</p>
+      </div>
+    </div>
+
+    <div class="content-section fade-in" id="accounts">
+      <p class="section-num">02</p>
+      <h2 class="section-title">Accounts</h2>
+      <div class="content-body">
+        <p>To access most features, you must create an account. You agree to provide accurate, complete, and current information and to keep it updated.</p>
+        <p>You are responsible for maintaining the confidentiality of your credentials and for all activity that occurs under your account. Notify us immediately at support@mambru.inc if you suspect unauthorized access.</p>
+        <p>You must be at least 13 years old to create an account (16 in the EU/EEA). By creating an account, you represent that you meet this requirement.</p>
+        <p>We reserve the right to suspend or terminate accounts that violate these Terms, are inactive for extended periods, or are associated with fraudulent activity.</p>
+      </div>
+    </div>
+
+    <div class="content-section fade-in" id="license">
+      <p class="section-num">03</p>
+      <h2 class="section-title">License to Use</h2>
+      <div class="content-body">
+        <p>Subject to these Terms, mambru.inc grants you a limited, non-exclusive, non-transferable, revocable license to use our apps and services for your personal, non-commercial purposes.</p>
+        <p>You may not: copy, modify, or create derivative works of our apps; reverse engineer or attempt to extract source code; sublicense or resell access; use automated means to access our services beyond normal use; or use our services to build a competing product.</p>
+        <p>All rights not expressly granted here are reserved by mambru.inc. Our apps, brands, logos, and design systems are protected by copyright and trademark law.</p>
+      </div>
+    </div>
+
+    <div class="content-section fade-in" id="conduct">
+      <p class="section-num">04</p>
+      <h2 class="section-title">Acceptable Use</h2>
+      <div class="content-body">
+        <p>You agree to use our services only for lawful purposes and in ways that do not infringe the rights of others or restrict their use and enjoyment.</p>
+        <p>You must not:</p>
+        <p>— Use our services to transmit unlawful, harmful, threatening, abusive, or defamatory content.<br>
+        — Attempt to gain unauthorized access to any part of our systems.<br>
+        — Upload or transmit viruses, malware, or any other malicious code.<br>
+        — Engage in data scraping, crawling, or any form of automated data extraction.<br>
+        — Impersonate any person or entity, or misrepresent your affiliation with any person or entity.<br>
+        — Use our services in any manner that could damage, disable, overburden, or impair our infrastructure.</p>
+        <div class="warning-box"><p>Violation of these rules may result in immediate account termination without refund and, where applicable, referral to law enforcement.</p></div>
+      </div>
+    </div>
+
+    <div class="content-section fade-in" id="content">
+      <p class="section-num">05</p>
+      <h2 class="section-title">Your Content</h2>
+      <div class="content-body">
+        <p>You retain ownership of any content you create, upload, or store within our apps ("Your Content"). By using our services, you grant mambru.inc a limited, worldwide, royalty-free license to store, process, and display Your Content solely to provide and improve the service to you.</p>
+        <p>We do not claim ownership over Your Content, and we will not use it for advertising, share it with third parties for their own purposes, or use it to train AI models without your explicit consent.</p>
+        <p>You are solely responsible for Your Content. You represent that you have all rights necessary to grant us the license above, and that Your Content does not violate any law or these Terms.</p>
+      </div>
+    </div>
+
+    <div class="content-section fade-in" id="payments">
+      <p class="section-num">06</p>
+      <h2 class="section-title">Payments & Subscriptions</h2>
+      <div class="content-body">
+        <p>Some mambru.inc apps offer premium features through paid subscriptions. All billing is processed through Apple's App Store or other authorized payment processors. We do not store your payment details.</p>
+        <p>Subscriptions automatically renew unless cancelled at least 24 hours before the end of the current billing period. You can manage and cancel subscriptions through your App Store account settings.</p>
+        <p>Refunds are governed by Apple's refund policy. We do not offer direct refunds except where required by applicable law.</p>
+        <div class="info-grid">
+          <div class="info-cell"><p class="info-cell-label">Billing</p><p class="info-cell-value">Processed by Apple App Store or authorized processors.</p></div>
+          <div class="info-cell"><p class="info-cell-label">Cancellation</p><p class="info-cell-value">Cancel anytime via your App Store subscription settings.</p></div>
+          <div class="info-cell"><p class="info-cell-label">Price Changes</p><p class="info-cell-value">We'll give you 30 days notice before any price increase takes effect.</p></div>
+          <div class="info-cell"><p class="info-cell-label">Refunds</p><p class="info-cell-value">Subject to Apple's refund policy or applicable law.</p></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="content-section fade-in" id="termination">
+      <p class="section-num">07</p>
+      <h2 class="section-title">Termination</h2>
+      <div class="content-body">
+        <p>You may terminate your account at any time by deleting it from within the app or contacting us at support@mambru.inc. Upon termination, your right to use our services ceases immediately.</p>
+        <p>We may suspend or terminate your account at any time if we believe you have violated these Terms, or for any other reason with reasonable notice (except where immediate termination is necessary to prevent harm or legal liability).</p>
+        <p>On termination, we will delete your personal data in accordance with our Privacy Policy. Provisions of these Terms that by their nature should survive termination (including ownership, warranty disclaimers, limitations of liability, and dispute resolution) will do so.</p>
+      </div>
+    </div>
+
+    <div class="content-section fade-in" id="liability">
+      <p class="section-num">08</p>
+      <h2 class="section-title">Disclaimers & Liability</h2>
+      <div class="content-body">
+        <p>Our services are provided "as is" and "as available" without warranties of any kind, express or implied, including fitness for a particular purpose, merchantability, or non-infringement.</p>
+        <p>We do not warrant that our services will be uninterrupted, error-free, or free of viruses. We are not responsible for data loss — you are encouraged to maintain backups of important content.</p>
+        <p>To the maximum extent permitted by law, mambru.inc's total liability to you for any claims arising from your use of our services shall not exceed the greater of (a) the amount you paid us in the 12 months prior to the claim, or (b) $100 USD.</p>
+        <div class="warning-box"><p>Some jurisdictions do not allow limitations on implied warranties or liability. In those jurisdictions, our liability is limited to the maximum extent permitted by law.</p></div>
+      </div>
+    </div>
+
+    <div class="content-section fade-in" id="disputes">
+      <p class="section-num">09</p>
+      <h2 class="section-title">Disputes</h2>
+      <div class="content-body">
+        <p>These Terms are governed by the laws of the State of Florida, United States, without regard to conflict of law principles.</p>
+        <p>Before filing a formal dispute, we ask that you contact us at legal@mambru.inc to try to resolve the issue informally. We'll make a good faith effort to respond within 14 business days.</p>
+        <p>For any disputes that cannot be resolved informally, you agree that they will be resolved through binding arbitration in Kissimmee, Florida, under the rules of the American Arbitration Association, except that either party may seek injunctive or other equitable relief in a court of competent jurisdiction.</p>
+        <p>You agree to resolve disputes individually and waive the right to participate in class action lawsuits or class-wide arbitration.</p>
+      </div>
+    </div>
+
+    <div class="content-section fade-in" id="contact">
+      <p class="section-num">10</p>
+      <h2 class="section-title">Contact</h2>
+      <div class="content-body">
+        <p>Questions about these Terms? We're here.</p>
+        <div class="info-grid">
+          <div class="info-cell"><p class="info-cell-label">General</p><p class="info-cell-value">support@mambru.inc</p></div>
+          <div class="info-cell"><p class="info-cell-label">Legal</p><p class="info-cell-value">legal@mambru.inc</p></div>
+          <div class="info-cell"><p class="info-cell-label">Privacy</p><p class="info-cell-value">privacy@mambru.inc</p></div>
+          <div class="info-cell"><p class="info-cell-label">Entity</p><p class="info-cell-value">mambru.inc</p></div>
+        </div>
+      </div>
+    </div>
+
+  </main>
+</div>
+<footer>
+  <div class="footer-logo">mambru<span>.inc</span></div>
+  <p class="footer-copy">© 2025 mambru.inc</p>
+  <ul class="footer-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="privacy.html">Privacy</a></li>
+    <li><a href="terms.html">Terms</a></li>
+  </ul>
+</footer>
+<script>
+  const cursor = document.getElementById('cursor');
+  document.addEventListener('mousemove', e => { cursor.style.left = e.clientX + 'px'; cursor.style.top = e.clientY + 'px'; });
+  document.querySelectorAll('a').forEach(el => { el.addEventListener('mouseenter', () => cursor.classList.add('hovered')); el.addEventListener('mouseleave', () => cursor.classList.remove('hovered')); });
+  const observer = new IntersectionObserver(entries => { entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('visible'); observer.unobserve(entry.target); } }); }, { threshold: 0.1 });
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
