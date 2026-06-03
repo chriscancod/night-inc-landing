@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Privacy Policy — mambru.inc</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Mono:wght@300;400;500&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --bg: #080808; --surface: #0f0f0f; --surface2: #161616;
+    --border: rgba(255,255,255,0.07); --border-hover: rgba(255,255,255,0.18);
+    --text: #f0ede8; --muted: #6b6b6b; --accent: #e8e0d0; --white: #ffffff;
+  }
+  html { scroll-behavior: smooth; }
+  body { background: var(--bg); color: var(--text); font-family: 'Syne', sans-serif; font-size: 15px; line-height: 1.6; overflow-x: hidden; cursor: none; }
+  .cursor { position: fixed; width: 10px; height: 10px; background: var(--white); border-radius: 50%; pointer-events: none; z-index: 9999; transform: translate(-50%, -50%); transition: width 0.2s ease, height 0.2s ease, opacity 0.2s ease; }
+  .cursor.hovered { width: 32px; height: 32px; opacity: 0.4; }
+  body::before { content: ''; position: fixed; inset: 0; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E"); pointer-events: none; z-index: 1000; opacity: 0.5; }
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 28px 48px; }
+  nav::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(8,8,8,0.95) 0%, transparent 100%); z-index: -1; }
+  .nav-logo { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 18px; letter-spacing: -0.02em; color: var(--white); text-decoration: none; }
+  .nav-logo span { color: var(--muted); }
+  .nav-back { font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); text-decoration: none; transition: color 0.2s; display: flex; align-items: center; gap: 8px; }
+  .nav-back::before { content: '←'; }
+  .nav-back:hover { color: var(--white); }
+  .page-header { padding: 160px 48px 80px; border-bottom: 1px solid var(--border); display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: end; }
+  .page-eyebrow { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); margin-bottom: 20px; }
+  .page-title { font-family: 'Syne', sans-serif; font-weight: 800; font-size: clamp(42px, 7vw, 90px); letter-spacing: -0.04em; line-height: 0.92; color: var(--white); }
+  .page-title em { font-family: 'Instrument Serif', serif; font-style: italic; font-weight: 400; color: var(--accent); }
+  .page-meta { display: flex; flex-direction: column; gap: 16px; align-items: flex-end; }
+  .page-date { font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); }
+  .page-summary { font-size: 14px; color: var(--muted); line-height: 1.8; text-align: right; max-width: 360px; }
+  .content-wrap { display: grid; grid-template-columns: 240px 1fr; min-height: 100vh; }
+  .content-aside { border-right: 1px solid var(--border); padding: 60px 40px; position: sticky; top: 88px; height: fit-content; }
+  .aside-label { font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); margin-bottom: 24px; }
+  .aside-nav { display: flex; flex-direction: column; gap: 4px; }
+  .aside-nav a { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); text-decoration: none; padding: 8px 0; border-bottom: 1px solid var(--border); transition: color 0.2s; }
+  .aside-nav a:hover { color: var(--white); }
+  .aside-nav a:last-child { border-bottom: none; }
+  .content-main { padding: 60px 64px 120px; max-width: 780px; }
+  .content-section { margin-bottom: 80px; }
+  .section-num { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted); margin-bottom: 16px; display: flex; align-items: center; gap: 12px; }
+  .section-num::after { content: ''; flex: 1; height: 1px; background: var(--border); max-width: 40px; }
+  .section-title { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 26px; letter-spacing: -0.02em; color: var(--white); margin-bottom: 24px; }
+  .content-body p { font-size: 14px; color: var(--muted); line-height: 1.9; margin-bottom: 16px; }
+  .content-body p:last-child { margin-bottom: 0; }
+  .content-body strong { color: var(--text); font-weight: 600; }
+  .info-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: 12px; overflow: hidden; margin: 28px 0; }
+  .info-cell { background: var(--surface); padding: 20px 24px; }
+  .info-cell-label { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin-bottom: 8px; }
+  .info-cell-value { font-size: 14px; color: var(--text); line-height: 1.6; }
+  .highlight-box { border: 1px solid var(--border); border-left: 2px solid rgba(255,255,255,0.2); background: var(--surface); border-radius: 0 8px 8px 0; padding: 20px 24px; margin: 24px 0; }
+  .highlight-box p { font-size: 13px !important; color: var(--accent) !important; }
+  footer { border-top: 1px solid var(--border); padding: 40px 48px; display: flex; align-items: center; justify-content: space-between; }
+  .footer-logo { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 16px; letter-spacing: -0.02em; color: var(--white); }
+  .footer-logo span { color: var(--muted); }
+  .footer-copy { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.12em; color: var(--muted); text-transform: uppercase; }
+  .footer-links { display: flex; gap: 24px; list-style: none; }
+  .footer-links a { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); text-decoration: none; transition: color 0.2s; }
+  .footer-links a:hover { color: var(--white); }
+  .fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
+  .fade-in.visible { opacity: 1; transform: translateY(0); }
+  @media (max-width: 900px) {
+    .page-header { grid-template-columns: 1fr; padding: 140px 24px 60px; }
+    .page-meta { align-items: flex-start; } .page-summary { text-align: left; }
+    .content-wrap { grid-template-columns: 1fr; } .content-aside { display: none; }
+    .content-main { padding: 40px 24px 80px; } nav { padding: 24px; }
+    footer { flex-direction: column; gap: 16px; text-align: center; padding: 32px 24px; }
+    .footer-links { justify-content: center; } .info-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+<div class="cursor" id="cursor"></div>
+<nav>
+  <a href="index.html" class="nav-logo">mambru<span>.inc</span></a>
+  <a href="index.html" class="nav-back">Back to home</a>
+</nav>
+<div class="page-header">
+  <div>
+    <p class="page-eyebrow">Legal — 01</p>
+    <h1 class="page-title">Privacy<br><em>Policy</em></h1>
+  </div>
+  <div class="page-meta">
+    <span class="page-date">Effective: January 1, 2025</span>
+    <p class="page-summary">How mambru.inc and its apps collect, use, and protect your information. We keep it simple and honest.</p>
+  </div>
+</div>
+<div class="content-wrap">
+  <aside class="content-aside">
+    <p class="aside-label">Sections</p>
+    <nav class="aside-nav">
+      <a href="#overview">Overview</a>
+      <a href="#collect">What We Collect</a>
+      <a href="#use">How We Use It</a>
+      <a href="#sharing">Sharing</a>
+      <a href="#storage">Storage & Security</a>
+      <a href="#rights">Your Rights</a>
+      <a href="#children">Children</a>
+      <a href="#changes">Changes</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </aside>
+  <main class="content-main">
+    <div class="content-section fade-in" id="overview">
+      <p class="section-num">01</p>
+      <h2 class="section-title">Overview</h2>
+      <div class="content-body">
+        <p>mambru.inc operates a suite of apps — APX, WARDROBE, DECK, AURA, KINETIC, NEXUS, GRIND, and INDEX — as well as brands including 2am, Clicky, and Veynor. This Privacy Policy applies to all of them.</p>
+        <p>We believe your data belongs to you. We collect only what's necessary to make our products work well, we don't sell it, and we give you meaningful control over it.</p>
+        <div class="highlight-box"><p>By using any mambru.inc product, you agree to the practices described in this policy. If you don't agree, please stop using the service and contact us to delete your account.</p></div>
+      </div>
+    </div>
+    <div class="content-section fade-in" id="collect">
+      <p class="section-num">02</p>
+      <h2 class="section-title">What We Collect</h2>
+      <div class="content-body">
+        <p>We collect information in three ways: information you give us directly, information generated by your use of our apps, and information from third-party services you connect.</p>
+        <div class="info-grid">
+          <div class="info-cell"><p class="info-cell-label">Account Data</p><p class="info-cell-value">Name, email address, password (hashed), profile photo, preferences, and onboarding responses.</p></div>
+          <div class="info-cell"><p class="info-cell-label">Usage Data</p><p class="info-cell-value">In-app activity, feature interactions, session duration, and crash reports.</p></div>
+          <div class="info-cell"><p class="info-cell-label">Device Data</p><p class="info-cell-value">Device type, OS version, app version, IP address, and timezone.</p></div>
+          <div class="info-cell"><p class="info-cell-label">User Content</p><p class="info-cell-value">Any content you create inside our apps — entries, items, plans, notes, and schedules.</p></div>
+        </div>
+        <p>We do <strong>not</strong> collect payment information directly — this is handled by Apple's App Store or other third-party payment processors.</p>
+      </div>
+    </div>
+    <div class="content-section fade-in" id="use">
+      <p class="section-num">03</p>
+      <h2 class="section-title">How We Use It</h2>
+      <div class="content-body">
+        <p>Your data is used to power the features you signed up for. That includes generating personalized AI recommendations (where applicable), syncing your content across devices, sending you product notifications you opt into, and improving product quality through aggregated analytics.</p>
+        <p>Where our apps use AI features — such as schedule generation in KINETIC or content suggestions in INDEX — your profile data may be used as context to personalize those outputs. This processing happens on our servers. We do not share this data with AI providers in a way that identifies you personally.</p>
+        <p>We may use your email address to send you service-critical communications (account security, policy updates). We will only send marketing emails if you explicitly opt in.</p>
+      </div>
+    </div>
+    <div class="content-section fade-in" id="sharing">
+      <p class="section-num">04</p>
+      <h2 class="section-title">Sharing</h2>
+      <div class="content-body">
+        <p><strong>We do not sell your personal data.</strong> Full stop.</p>
+        <p><strong>Service providers</strong> — Third parties who help us operate our infrastructure (hosting, analytics, error tracking). They are bound by data processing agreements and cannot use your data for their own purposes.</p>
+        <p><strong>Legal requirements</strong> — If required by law, court order, or to protect the rights, property, or safety of mambru.inc, our users, or the public.</p>
+        <p><strong>Business transfers</strong> — In the event of a merger, acquisition, or sale of assets, your data may be transferred. We will notify you before this happens and give you the option to delete your account.</p>
+      </div>
+    </div>
+    <div class="content-section fade-in" id="storage">
+      <p class="section-num">05</p>
+      <h2 class="section-title">Storage & Security</h2>
+      <div class="content-body">
+        <p>Your data is stored on servers in the United States. If you are located in the EU or another region with data transfer regulations, your use of our services constitutes consent to this transfer.</p>
+        <p>We use industry-standard security practices including encryption in transit (TLS), hashed password storage, and access controls limiting who can view your data internally. No system is perfectly secure — if we become aware of a breach affecting your data, we will notify you promptly.</p>
+        <p>We retain your data for as long as your account is active. If you delete your account, we will delete your personal data within 30 days, except where retention is required by law.</p>
+      </div>
+    </div>
+    <div class="content-section fade-in" id="rights">
+      <p class="section-num">06</p>
+      <h2 class="section-title">Your Rights</h2>
+      <div class="content-body">
+        <p>You have the right to access, correct, export, or delete your personal data at any time. You can do most of this directly inside any mambru.inc app from your account settings.</p>
+        <p>If you are in the EU/EEA, you have additional rights under GDPR, including the right to restrict processing, the right to data portability, and the right to object to certain uses. To exercise these rights, contact us at the address below.</p>
+        <p>If you are a California resident, you have rights under CCPA including the right to know what personal data we collect and the right to opt out of sale (we don't sell data, but the right applies).</p>
+      </div>
+    </div>
+    <div class="content-section fade-in" id="children">
+      <p class="section-num">07</p>
+      <h2 class="section-title">Children</h2>
+      <div class="content-body">
+        <p>Our apps are not directed to children under the age of 13 (or 16 in the EU). We do not knowingly collect personal data from children. If you believe a child has provided us with personal data, contact us and we will delete it.</p>
+      </div>
+    </div>
+    <div class="content-section fade-in" id="changes">
+      <p class="section-num">08</p>
+      <h2 class="section-title">Changes to This Policy</h2>
+      <div class="content-body">
+        <p>We may update this policy from time to time. When we do, we'll update the effective date at the top of this page and, for significant changes, notify you via email or in-app notice. Your continued use of our products after changes take effect constitutes acceptance of the updated policy.</p>
+      </div>
+    </div>
+    <div class="content-section fade-in" id="contact">
+      <p class="section-num">09</p>
+      <h2 class="section-title">Contact</h2>
+      <div class="content-body">
+        <p>Questions, requests, or concerns about this policy? Reach us at:</p>
+        <div class="info-grid">
+          <div class="info-cell"><p class="info-cell-label">Email</p><p class="info-cell-value">privacy@mambru.inc</p></div>
+          <div class="info-cell"><p class="info-cell-label">Entity</p><p class="info-cell-value">mambru.inc</p></div>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+<footer>
+  <div class="footer-logo">mambru<span>.inc</span></div>
+  <p class="footer-copy">© 2025 mambru.inc</p>
+  <ul class="footer-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="privacy.html">Privacy</a></li>
+    <li><a href="terms.html">Terms</a></li>
+  </ul>
+</footer>
+<script>
+  const cursor = document.getElementById('cursor');
+  document.addEventListener('mousemove', e => { cursor.style.left = e.clientX + 'px'; cursor.style.top = e.clientY + 'px'; });
+  document.querySelectorAll('a').forEach(el => { el.addEventListener('mouseenter', () => cursor.classList.add('hovered')); el.addEventListener('mouseleave', () => cursor.classList.remove('hovered')); });
+  const observer = new IntersectionObserver(entries => { entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('visible'); observer.unobserve(entry.target); } }); }, { threshold: 0.1 });
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
